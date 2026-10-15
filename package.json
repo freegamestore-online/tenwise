@@ -9,6 +9,7 @@
     "build": "pnpm --filter @tenwise/web build",
     "preview": "pnpm --filter @tenwise/web preview",
     "typecheck": "pnpm --filter @tenwise/web exec tsc -b",
-    "test": "pnpm --filter @tenwise/web test"
+    "test": "pnpm --filter @tenwise/web test",
+    "lint": "pnpm --filter @tenwise/web lint"
   }
 }

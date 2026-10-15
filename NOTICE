@@ -1,0 +1,17 @@
+Tenwise - third-party notices
+
+Questions from Open Trivia DB, CC BY-SA 4.0
+  Source:  https://opentdb.com/
+  Licence: Creative Commons Attribution-ShareAlike 4.0 International
+           https://creativecommons.org/licenses/by-sa/4.0/
+
+  The file web/src/data/trivia-snapshot.json is a snapshot of questions from
+  Open Trivia DB, bundled offline. It was built by
+  web/scripts/build-trivia-snapshot.mjs: the text is HTML-decoded, and
+  flagged, offensive, duplicate and time-sensitive ("dated") questions are
+  removed. Categories and difficulties are balanced. The snapshot's
+  attribution and licence fields are recorded in the file itself.
+
+  Because the snapshot is adapted from CC BY-SA 4.0 material, any edited or
+  redistributed question set stays under CC BY-SA 4.0, with attribution to
+  Open Trivia DB and a link to the licence.

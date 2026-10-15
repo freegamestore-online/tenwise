@@ -1,4 +1,5 @@
-import { GameShell, GameTopbar, GameAuth } from "@freegamestore/games";
+import { GameTopbar, GameAuth } from "@freegamestore/games";
+import GameShell from "./GameShell";
 
 export default function App() {
   return (
