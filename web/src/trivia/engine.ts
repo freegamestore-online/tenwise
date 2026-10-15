@@ -209,3 +209,29 @@ export function shareText(state: GameState): string {
 
   return [header, stats, ...rows].join("\n");
 }
+
+/** What a saved round keeps: enough to pick up where the player left off. */
+export type Progress = Pick<GameState, "results" | "streak" | "bestStreak" | "score">;
+
+/**
+ * Picks a saved daily round back up: the same questions, minus the ones already answered.
+ * Only for daily rounds, whose questions are fixed by the date.
+ */
+export function resumeGame(mode: Mode, progress: Progress): GameState {
+  const fresh = startGame(mode);
+  return {
+    ...fresh,
+    queue: fresh.queue.slice(progress.results.length),
+    results: progress.results,
+    streak: progress.streak,
+    bestStreak: progress.bestStreak,
+    score: progress.score,
+  };
+}
+
+/** The most a round can score: ten correct answers at the capped multiplier. */
+export function maxRoundScore(): number {
+  let total = 0;
+  for (let i = 0; i < ROUND_LENGTH; i++) total += BASE_POINTS * Math.min(1 + i, MAX_MULTIPLIER);
+  return total;
+}

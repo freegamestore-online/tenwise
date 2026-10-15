@@ -1,20 +1,13 @@
-import { GameTopbar, GameAuth } from "@freegamestore/games";
+import { GameTopbar, GameThemeToggle, GameAuth } from "@freegamestore/games";
 import GameShell from "./GameShell";
+import { TriviaView } from "./trivia/TriviaView";
 
 export default function App() {
   return (
-    <GameShell topbar={<GameTopbar title="Tenwise" score={0} />}>
+    <GameShell topbar={<GameTopbar title="Tenwise" actions={<GameThemeToggle />} />}>
       <GameAuth />
-      <div className="flex flex-col items-center justify-center h-full gap-4">
-        <h1
-          className="text-3xl font-bold"
-          style={{ fontFamily: "Fraunces, serif" }}
-        >
-          Tenwise
-        </h1>
-        <p style={{ color: "var(--muted)" }}>
-          Your game will appear here once it&rsquo;s built.
-        </p>
+      <div className="flex h-full flex-col items-center justify-center overflow-y-auto p-4">
+        <TriviaView />
       </div>
     </GameShell>
   );
