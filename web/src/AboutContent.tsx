@@ -29,7 +29,7 @@ export function AboutContent() {
       <section>
         <h2 className="mb-1 text-base font-bold">Attribution</h2>
         <p>
-          Questions from the{" "}
+          Questions from{" "}
           <a href="https://opentdb.com/" target="_blank" rel="noopener noreferrer" className={LINK}>
             Open Trivia DB
           </a>
