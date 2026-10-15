@@ -72,6 +72,16 @@ jobs:
         run: |
           grep -qi "apple-mobile-web-app-capable\|mobile-web-app-capable" web/index.html
 
+      - name: Offline precache
+        # The service worker (vite-plugin-pwa) precaches the app shell and the JS bundle,
+        # which carries the trivia snapshot, and serves navigations offline.
+        run: |
+          test -f web/dist/sw.js
+          grep -q "precacheAndRoute" web/dist/sw.js
+          grep -q "NavigationRoute" web/dist/sw.js
+          grep -q "assets/index-.*\.js" web/dist/sw.js
+          grep -q "registerSW" web/dist/index.html
+
       - name: FreeGameStore link
         # The link is rendered by the @freegamestore/games SDK (GameShell), so it
         # lives in the built bundle, not web/src. Check web/dist (built above).
