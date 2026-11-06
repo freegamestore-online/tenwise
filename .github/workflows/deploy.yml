@@ -15,7 +15,10 @@ concurrency:
 
 jobs:
   ci-and-deploy:
-    uses: freegamestore-online/ci-workflows/.github/workflows/game-deploy.yml@f726c09f22ad6e713f9a39054bebc16b4370775a
+    # A template repo ships this file to the games made from it but is not a
+    # game: it has no route to deploy to and its placeholders fail `fgs check`.
+    if: ${{ !github.event.repository.is_template }}
+    uses: freegamestore-online/ci-workflows/.github/workflows/game-deploy.yml@8d03ac1919f7d3b7dc114baacb19d8b60118cde4
     # The deploy job uploads with a GitHub OIDC token; no R2 secret (#488).
     permissions:
       contents: read
